@@ -14,7 +14,13 @@
             <li ng-class="{ active: $ctrl.isActive('') }"><a href="/angular">Home</a></li>
             <li ng-class="{ active: $ctrl.isActive('/Login') }"><a ng-link="['Login']">Login</a></li>
             <li ng-class="{ active: $ctrl.isActive('/Registration') }"><a ng-link="['Registration']">Registration</a></li>
+            
+            <li ng-repeat="item in $ctrl.menu" ng-class="">
+                <a ng-link="item.link">item.name</a>
+            </li>
+          
           </ul>
+         
         </div><!--/.nav-collapse -->
       </div>
     </nav>

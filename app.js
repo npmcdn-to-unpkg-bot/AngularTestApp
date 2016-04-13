@@ -18,6 +18,11 @@ angular.module('app', ['ngComponentRouter','loginCtrl','registrationCtrl'])
 
 function AppCtrl( $location) {
   var $ctrl = this;
+  $ctrl.menu = [
+      {name: 'Home',link:''},
+      {name: 'Login',link:'Login'},
+      {name: 'Registration',link:'Registration'}
+      ]
   this.isActive = function (viewLocation) {
       console.log($location.path()+"=="+viewLocation);
       console.log("-------------------");
