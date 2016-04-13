@@ -1,4 +1,4 @@
-angular.module('app', ['ngComponentRouter'])
+angular.module('app', ['ngComponentRouter','loginCtrl','registrationCtrl'])
 
 .config(function($locationProvider) {
   $locationProvider.html5Mode(false);
@@ -9,10 +9,20 @@ angular.module('app', ['ngComponentRouter'])
 .component('app', {
   templateUrl: 'views/index.html',
   $routeConfig: [
-    {path: '/Login', name: 'Login', component: 'login', useAsDefault: true},
+     
+    {path: '/Login', name: 'Login', component: 'login'},
     {path: '/Registration', name: 'Registration', component: 'registration'},
-  ]
-  
-})
+  ],
+   controller: AppCtrl  
+});
 
+function AppCtrl( $location) {
+  var $ctrl = this;
+  this.isActive = function (viewLocation) {
+      console.log($location.path()+"=="+viewLocation);
+      console.log("-------------------");
+     var active = (viewLocation === $location.path());
+     return active;
+}
 
+};
