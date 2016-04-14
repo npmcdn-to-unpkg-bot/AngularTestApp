@@ -1,5 +1,5 @@
 
 (function() {
     'use strict';
-    angular.module('app', ['ngComponentRouter'])
+    angular.module('app', ['ngComponentRouter','ngCookies'])
 })();

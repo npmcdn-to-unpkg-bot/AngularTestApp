@@ -8,7 +8,12 @@
             controllerAs: 'vm'
         });
 
-    function PrivateCtrl() {
+    function PrivateCtrl(Authentification,$location) {
         var vm = this;
+        var check=Authentification.checkLogin();
+        console.log(check.value ==false);
+        if (check.value ==false) {
+            $location.path("/Login");
+        }
     }
 })();

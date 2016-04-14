@@ -15,7 +15,7 @@
         function login(){
             var auth =Authentification.login(vm.email,vm.password);
            console.log(auth);
-           if(auth){
+           if(auth.value){
                 $location.path( "/Private" );
            }else{
                vm.errorLogin="User & password error";

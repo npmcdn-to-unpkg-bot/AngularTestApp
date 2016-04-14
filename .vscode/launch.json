@@ -1,6 +1,14 @@
 {
 	"version": "0.2.0",
 	"configurations": [
+		 {
+            "name": "Launch localhost with sourcemaps",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost/angular/index.html",
+            "webRoot": "${workspaceRoot}",
+            "sourceMaps": true
+        },
 		{
 			"name": "Launch",
 			"type": "node",
