@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    angular.module('loginCtrl', [])
+    angular.module('app')
 
         .component('login', {
             templateUrl: 'views/login.html',
@@ -8,13 +8,18 @@
             controllerAs: 'vm'
         });
 
-    function LoginCtrl() {
+    function LoginCtrl(Authentification,$location) {
         var vm = this;
         vm.login = login;
         
-        
         function login(){
-            alert(vm.email+ " - " +vm.password);
+            var auth =Authentification.login(vm.email,vm.password);
+           console.log(auth);
+           if(auth){
+                $location.path( "/Registration" );
+           }else{
+               vm.errorLogin="User & password error";
+           }
         }
         
 

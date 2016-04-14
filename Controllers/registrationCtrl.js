@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    angular.module('registrationCtrl', [])
+    angular.module('app')
 
         .component('registration', {
             templateUrl: 'views/registration.html',
