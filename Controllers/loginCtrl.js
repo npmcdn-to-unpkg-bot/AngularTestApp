@@ -1,11 +1,15 @@
-angular.module('loginCtrl',[])
+(function() {
+    'use strict';
+    angular.module('loginCtrl', [])
 
-.component('login', {
-  templateUrl: 'views/login.html',
-   controller: LoginCtrl  
-});
+        .component('login', {
+            templateUrl: 'views/login.html',
+            controller: LoginCtrl
+        });
 
-function LoginCtrl() {
-  var $ctrl = this;
-  
-}
+    function LoginCtrl() {
+        var $ctrl = this;
+
+    }
+
+})();

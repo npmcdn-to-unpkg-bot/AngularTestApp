@@ -1,5 +1,9 @@
-angular.module('registrationCtrl',[])
+(function() {
+    'use strict';
+    angular.module('registrationCtrl', [])
 
-.component('registration', {
-  templateUrl: 'views/registration.html',  
-});
+        .component('registration', {
+            templateUrl: 'views/registration.html',
+        });
+
+})();
