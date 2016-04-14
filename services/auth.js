@@ -25,12 +25,12 @@
 
         function register(user, password) {
             if (typeof (Storage) !== "undefined") {
-                var arr =  localStorage.getItem("userData");
+                var arr =  JSON.parse(localStorage.getItem("userData"));
                 if ((arr === undefined) || (arr == null) || (arr == "undefined")){
                     arr=[];
                     arr.push(new User(user, password));
                     console.log(arr);
-                    localStorage.setItem("userData",arr);
+                    localStorage.setItem("userData",JSON.stringify(arr));
                     return true;
                 }else{
                     console.log(arr);
