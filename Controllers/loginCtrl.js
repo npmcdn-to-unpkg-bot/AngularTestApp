@@ -4,12 +4,21 @@
 
         .component('login', {
             templateUrl: 'views/login.html',
-            controller: LoginCtrl
+            controller: LoginCtrl,
+            controllerAs: 'vm'
         });
 
     function LoginCtrl() {
-        var $ctrl = this;
+        var vm = this;
+        vm.login = login;
+        
+        
+        function login(){
+            alert(vm.email+ " - " +vm.password);
+        }
+        
 
     }
 
 })();
+
