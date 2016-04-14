@@ -8,7 +8,8 @@
     //Service.$inject = ['dependency1'];
     function Authentification() {
         var service = {
-            login: login
+            login: login,
+            register:register
         };
 
         return service;
@@ -22,16 +23,33 @@
             return false;
         }
 
-        function Register(user, password) {
+        function register(user, password) {
             if (typeof (Storage) !== "undefined") {
-                var arr = [];
-                arr.push(new User(user, password))
-                localStorage.setItem("userData",arr);
+                var arr =  localStorage.getItem("userData");
+                if ((arr === undefined) || (arr == null) || (arr == "undefined")){
+                    arr=[];
+                    arr.push(new User(user, password));
+                    console.log(arr);
+                    localStorage.setItem("userData",arr);
+                    return true;
+                }else{
+                    console.log(arr);
+                    for (var i = 0, len = arr.length; i < len; i++) {
+                        
+                        if (arr[i].User===user)
+                            return false;
+                    }
+                    arr.push(new User(user, password));
+                    localStorage.setItem("userData",arr);
+                    
+                }
+                
             } else {
                 // Sorry! No Web Storage support..
             }
 
         }
+        
         function checkLogin() {
             if (typeof (Storage) !== "undefined") {
                 // Code for localStorage/sessionStorage.
