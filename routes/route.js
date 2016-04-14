@@ -1,4 +1,3 @@
-
 (function() {
     'use strict';
     angular.module('app')
@@ -15,6 +14,7 @@
 
                 { path: '/Login', name: 'Login', component: 'login' },
                 { path: '/Registration', name: 'Registration', component: 'registration' },
+                { path: '/Private', name: 'Private', component: 'private' },
             ],
             controller: AppCtrl,
             controllerAs: 'vm'
@@ -33,7 +33,8 @@
            var menu = [
             
             { name: 'Login', link: '/Login' },
-            { name: 'Registration', link: '/Registration' }
+            { name: 'Registration', link: '/Registration' },
+            { name: 'Private', link: '/Private' }
             ]
            // console.log(menu);
             return menu;

@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
 
     angular
@@ -19,19 +19,19 @@
             if (typeof (Storage) !== "undefined") {
                 var arr = JSON.parse(localStorage.getItem("userData"));
                 if ((arr === undefined) || (arr == null) || (arr == "undefined")) {
-                    return false;
+                    return { value: false, error: "user or password error" }
                 }
                 else {
                     for (var i = 0, len = arr.length; i < len; i++) {
 
                         if (arr[i].User === user && arr[i].Password)
-                            return true;
+                            return { value: true, error: "" };
                     }
                 }
             }
             else {
                 console.log("Sorry! No Web Storage support..");
-                return false;
+                return { value: false, error: "Sorry! No Web Storage support.." }
             }
         }
 
@@ -43,23 +43,23 @@
                     arr.push(new User(user, password));
 
                     localStorage.setItem("userData", JSON.stringify(arr));
-                    return true;
+                    return { value: true, error: "" };
                 } else {
 
                     for (var i = 0, len = arr.length; i < len; i++) {
 
                         if (arr[i].User === user)
-                            return false;
+                            return { value: false, error: "User Exist" };
                     }
                     arr.push(new User(user, password));
-                    localStorage.setItem("userData", arr);
-
+                    localStorage.setItem("userData", JSON.stringify(arr));
+                    return { value: true, error: "" };
                 }
 
             } else {
 
                 console.log("Sorry! No Web Storage support..");
-                return false;
+                return { value: false, error: "Sorry! No Web Storage support.." }
             }
 
         }

@@ -16,7 +16,7 @@
             var auth =Authentification.login(vm.email,vm.password);
            console.log(auth);
            if(auth){
-                $location.path( "/Registration" );
+                $location.path( "/Private" );
            }else{
                vm.errorLogin="User & password error";
            }
