@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('Module')
+        .module('app')
         .factory('User', User);
 
     //Service.$inject = ['dependency1'];
@@ -11,7 +11,6 @@
             this.User = user;
             this.Password = password;
             this.Key = key;
-
         }
         return User;
     }

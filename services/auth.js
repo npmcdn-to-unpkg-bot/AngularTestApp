@@ -6,7 +6,7 @@
         .factory('Authentification', Authentification);
 
     // Authentification.$inject = ['$cookies'];
-    function Authentification($cookies) {
+    function Authentification($cookies,User) {
         var service = {
             login: login,
             register: register,
