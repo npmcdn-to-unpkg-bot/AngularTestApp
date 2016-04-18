@@ -118,12 +118,7 @@
             }
 
         }
-        function User(user, password, key = "") {
-            this.User = user;
-            this.Password = password;
-            this.Key = key;
-
-        }
+        
     }
 })();
 
