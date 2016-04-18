@@ -2,16 +2,17 @@
     'use strict';
     angular.module('app')
         .component('private', {
-            templateUrl: 'views/private.html',
+            templateUrl: 'private/private.html',
             controller: PrivateCtrl,
             controllerAs: 'vm'
         });
 
-    function PrivateCtrl(User, $location, $timeout) {
+    function PrivateCtrl(LocalStorage, $location, $timeout) {
         var vm = this;
         activate();
+        
         function activate() {
-            var check = User.checkLogin();
+            var check = LocalStorage.checkLogin();
             if (check.value == false) {
                 $timeout(function () {
                     $location.path('/Login');
