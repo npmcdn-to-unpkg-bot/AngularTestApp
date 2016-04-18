@@ -20,35 +20,33 @@
             controllerAs: 'vm'
         });
 
-    function AppCtrl($location) {
+    function AppCtrl($location, User) {
         var vm = this;
         vm.menu = menu();
         vm.isActive = isActive;
-        
+        vm.logOut = logOut;
         /*
         * IMPLEMENT 
         */
-        
-        function menu(){
-           var menu = [
-            
-            { name: 'Login', link: '/Login' },
-            { name: 'Registration', link: '/Registration' },
-            { name: 'Private', link: '/Private' }
+
+        function menu() {
+            var menu = [
+
+                { name: 'Login', link: '/Login' },
+                { name: 'Registration', link: '/Registration' },
+                { name: 'Private', link: '/Private' }
             ]
-           // console.log(menu);
             return menu;
         }
-        
+        function logOut() {
+            User.logOut();
+            $location.path("/Login");
+        }
         function isActive(viewLocation) {
-            //console.log($location.path() + "==" + viewLocation);
-            //console.log("-------------------");
-            
             var active = (viewLocation === $location.path());
-            //console.log(active);
             return active;
         }
-        
+
 
     };
 })();
