@@ -9,16 +9,12 @@
 
     function PrivateCtrl(User, $location, $timeout) {
         var vm = this;
-
         activate();
-        /*
-        * IMPLEMENT 
-        */
         function activate() {
             var check = User.checkLogin();
-            if (check.value == true) {
+            if (check.value == false) {
                 $timeout(function () {
-                    $location.path('/Private');
+                    $location.path('/Login');
                 });
             }
         }
