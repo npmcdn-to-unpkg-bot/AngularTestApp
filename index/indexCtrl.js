@@ -15,6 +15,7 @@
                 { path: '/Login', name: 'Login', component: 'login' },
                 { path: '/Registration', name: 'Registration', component: 'registration' },
                 { path: '/Private', name: 'Private', component: 'private' },
+                { path: '/Book', name: 'Book', component: 'book' },
             ],
             controller: AppCtrl,
             controllerAs: 'vm'
@@ -34,7 +35,8 @@
 
                 { name: 'Login', link: '/Login' },
                 { name: 'Registration', link: '/Registration' },
-                { name: 'Private', link: '/Private' }
+                { name: 'Private', link: '/Private' },
+                { name: 'book', link: '/Book' }
             ]
             return menu;
         }
