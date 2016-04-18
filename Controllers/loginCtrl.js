@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
     angular.module('app')
         .component('login', {
@@ -7,29 +7,31 @@
             controllerAs: 'vm'
         });
 
-    function LoginCtrl($location,$timeout,User) {
+    function LoginCtrl($location, $timeout, User) {
         var vm = this;
-       
         vm.login = login;
-        
+        activate();
         /*
         * IMPLEMENT 
         */
-        var check = User.checkLogin();
-        if (check.value == true) {
-            $timeout(function() {
-                $location.path('/Private');
-            });
+        function activate() {
+            var check = User.checkLogin();
+            if (check.value == true) {
+                $timeout(function () {
+                    $location.path('/Private');
+                });
+            }
         }
-        
-        function login(){
-            
-            var auth =User.login(vm.email,vm.password);
-           if(auth.value){
-                $location.path( "/Private" );
-           }else{
-               vm.errorLogin="User & password error";
-           }
+
+
+        function login() {
+
+            var auth = User.login(vm.email, vm.password);
+            if (auth.value) {
+                $location.path("/Private");
+            } else {
+                vm.errorLogin = "User & password error";
+            }
         }
     }
 
