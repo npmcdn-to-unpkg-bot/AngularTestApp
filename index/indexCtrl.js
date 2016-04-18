@@ -9,7 +9,7 @@
         .value('$routerRootComponent', 'app')
 
         .component('app', {
-            templateUrl: 'views/index.html',
+            templateUrl: 'index/index.html',
             $routeConfig: [
 
                 { path: '/Login', name: 'Login', component: 'login' },
