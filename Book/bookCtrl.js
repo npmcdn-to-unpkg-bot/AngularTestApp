@@ -7,21 +7,30 @@
             controllerAs: 'vm'
         });
 
-    function BookCtrl() {
+    function BookCtrl(BookService) {
         var vm = this;
-        //vm.login = login;
+        vm.bookList = [];
+        
         activate();
         /*
         * IMPLEMENT 
         */
         function activate() {
-            /*  var check = LocalStorage.checkLogin();
-              if (check.value == true) {
-                  $timeout(function () {
-                      $location.path('/Private');
-                  });*/
+           return getBooks().then(function() {
+            console.log('Activated Books View');
+        });
         }
+        
+        function getBooks() {
+        return BookService.getBooks()
+            .then(function(data) {
+                vm.bookList = data;
+                console.log(vm.bookList);
+                return vm.bookList;
+            });
+    }
     }
 
 })();
+
 
