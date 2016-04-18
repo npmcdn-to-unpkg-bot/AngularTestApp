@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
 
     angular
@@ -10,7 +10,8 @@
         var service = {
             login: login,
             register: register,
-            checkLogin: checkLogin
+            checkLogin: checkLogin,
+            logOut: logOut
         };
 
         return service;
@@ -70,10 +71,15 @@
 
         }
 
+function logOut() {
+    $cookies.remove('userkey');
+}
         function checkLogin() {
             if (typeof (Storage) !== "undefined") {
                 var arr = JSON.parse(localStorage.getItem("userData"));
+
                 if ((arr === undefined) || (arr == null) || (arr == "undefined")) {
+
                     return { value: false, error: "user or password error" }
                 }
                 else {

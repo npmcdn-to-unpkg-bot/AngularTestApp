@@ -1,6 +1,5 @@
-(function () {
+(function() {
     'use strict';
-
     angular.module('app')
         .component('private', {
             templateUrl: 'views/private.html',
@@ -8,12 +7,17 @@
             controllerAs: 'vm'
         });
 
-    function PrivateCtrl(Authentification,$location) {
+    function PrivateCtrl(Authentification, $location, $timeout) {
         var vm = this;
-        var check=Authentification.checkLogin();
-        console.log(check.value ==false);
-        if (check.value ==false) {
-            $location.path("/Login");
+        var check = Authentification.checkLogin();
+        
+        if (check.value == false) {
+           
+            $timeout(function() {
+                $location.path('/Login');
+            });
+           
         }
+
     }
 })();

@@ -1,25 +1,30 @@
- <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/angular">Test Angular</a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+            aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/angular">Test Angular</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li ng-class="{ active: vm.isActive('') }"><a href="/angular">Home</a></li>
-            
-            <li ng-class="{ active: vm.isActive(item.link) }" ng-repeat="item in vm.menu" ng-class="">
-                <a ng-link="[item.link]">{{item.name}}</a>
-            </li>
-          
-          </ul>
-         
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+            <ul class="nav navbar-nav">
+                <li ng-class="{ active: vm.isActive('') }"><a href="/angular">Home</a></li>
+
+                <li ng-class="{ active: vm.isActive(item.link) }" ng-repeat="item in vm.menu" ng-class="">
+                    <a ng-link="[item.link]">{{item.name}}</a>
+                </li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a ng-click="vm.logOut()">logout</a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+
+    </div>
+</nav>
 <ng-outlet></ng-outlet>
