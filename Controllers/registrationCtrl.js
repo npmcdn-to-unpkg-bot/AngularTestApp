@@ -7,7 +7,7 @@
             controllerAs: 'vm'
         });
 
-    function RegistrationCtrl(Authentification, $location) {
+    function RegistrationCtrl(User, $location) {
         var vm = this;
         vm.registration = registration;
 
@@ -15,7 +15,7 @@
         * IMPLEMENT 
         */
         function registration() {
-            var reg = Authentification.register(vm.email, vm.password)
+            var reg = User.register(vm.email, vm.password)
             if (reg.value) {
                 $location.path("/Private");
             }

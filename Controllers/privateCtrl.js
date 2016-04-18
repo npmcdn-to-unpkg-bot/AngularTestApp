@@ -7,9 +7,9 @@
             controllerAs: 'vm'
         });
 
-    function PrivateCtrl(Authentification, $location, $timeout) {
+    function PrivateCtrl(User, $location, $timeout) {
         var vm = this;
-        var check = Authentification.checkLogin();
+        var check = User.checkLogin();
         if (check.value == false) {
             $timeout(function() {
                 $location.path('/Login');

@@ -20,7 +20,7 @@
             controllerAs: 'vm'
         });
 
-    function AppCtrl($location, Authentification) {
+    function AppCtrl($location, User) {
         var vm = this;
         vm.menu = menu();
         vm.isActive = isActive;
@@ -39,7 +39,7 @@
             return menu;
         }
         function logOut() {
-            Authentification.logOut();
+            User.logOut();
             $location.path("/Login");
         }
         function isActive(viewLocation) {
