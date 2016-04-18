@@ -36,20 +36,14 @@
                 { name: 'Registration', link: '/Registration' },
                 { name: 'Private', link: '/Private' }
             ]
-            // console.log(menu);
             return menu;
         }
         function logOut() {
-        console.log("logout");
-        Authentification.logOut();
-         $location.path("/Login");
+            Authentification.logOut();
+            $location.path("/Login");
         }
         function isActive(viewLocation) {
-            //console.log($location.path() + "==" + viewLocation);
-            //console.log("-------------------");
-
             var active = (viewLocation === $location.path());
-            //console.log(active);
             return active;
         }
 

@@ -10,14 +10,10 @@
     function PrivateCtrl(Authentification, $location, $timeout) {
         var vm = this;
         var check = Authentification.checkLogin();
-        
         if (check.value == false) {
-           
             $timeout(function() {
                 $location.path('/Login');
             });
-           
         }
-
     }
 })();

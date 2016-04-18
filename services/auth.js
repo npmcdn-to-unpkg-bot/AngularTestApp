@@ -37,7 +37,6 @@
                 }
             }
             else {
-                console.log("Sorry! No Web Storage support..");
                 return { value: false, error: "Sorry! No Web Storage support.." }
             }
         }
@@ -64,16 +63,15 @@
                 }
 
             } else {
-
-                console.log("Sorry! No Web Storage support..");
                 return { value: false, error: "Sorry! No Web Storage support.." }
             }
 
         }
 
-function logOut() {
-    $cookies.remove('userkey');
-}
+        function logOut() {
+            $cookies.remove('userkey');
+        }
+
         function checkLogin() {
             if (typeof (Storage) !== "undefined") {
                 var arr = JSON.parse(localStorage.getItem("userData"));
@@ -84,7 +82,6 @@ function logOut() {
                 }
                 else {
                     for (var i = 0, len = arr.length; i < len; i++) {
-                        console.log(arr[i].Key + "----" + $cookies.get('userkey'));
                         if (arr[i].Key === $cookies.get('userkey')) {
 
                             return { value: true, error: "" }
@@ -94,7 +91,6 @@ function logOut() {
                 }
             }
             else {
-                console.log("Sorry! No Web Storage support..");
                 return { value: false, error: "Sorry! No Web Storage support.." }
             }
         }
@@ -118,8 +114,6 @@ function logOut() {
                 }
 
             } else {
-
-                console.log("Sorry! No Web Storage support..");
                 return { value: false, error: "Sorry! No Web Storage support.." }
             }
 
