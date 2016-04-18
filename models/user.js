@@ -12,6 +12,12 @@
             this.Password = password;
             this.Key = key;
         }
+
+        User.getFullName = getFullName;
+        
+        function getFullName() {
+            return this.firstName + ' ' + this.lastName;
+        }
         return User;
     }
 })();
