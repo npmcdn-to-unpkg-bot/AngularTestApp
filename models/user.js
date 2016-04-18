@@ -7,10 +7,11 @@
 
     //Service.$inject = ['dependency1'];
     function User() {
-        function User(user, password, key = "") {
-            this.User = user;
-            this.Password = password;
-            this.Key = key;
+        function User(user="", password="", key = "") {
+            console.log("User create");
+            this.user = user;
+            this.password = password;
+            this.key = key;
         }
 
         User.getFullName = getFullName;

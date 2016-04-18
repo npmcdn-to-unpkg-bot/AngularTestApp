@@ -7,8 +7,10 @@
             controllerAs: 'vm'
         });
 
-    function LoginCtrl(Authentification,$location,$timeout) {
+    function LoginCtrl(Authentification,$location,$timeout,User) {
         var vm = this;
+        vm.user= new User();
+        console.log(vm.user);
         vm.login = login;
         
         /*
@@ -22,7 +24,8 @@
         }
         
         function login(){
-            var auth =Authentification.login(vm.email,vm.password);
+            
+            var auth =Authentification.login(vm.user.email,vm.user.password);
            if(auth.value){
                 $location.path( "/Private" );
            }else{
