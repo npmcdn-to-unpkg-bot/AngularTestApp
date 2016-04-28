@@ -1,5 +1,6 @@
 (function() {
     'use strict';
+    console.log("entri");
     angular.module('app')
 
         .config(function($locationProvider) {
@@ -9,7 +10,7 @@
         .value('$routerRootComponent', 'app')
 
         .component('app', {
-            templateUrl: 'index/index.html',
+            templateUrl: 'home/home.html',
             $routeConfig: [
 
                 { path: '/Login', name: 'Login', component: 'login' },
@@ -22,12 +23,13 @@
         });
 
     function AppCtrl($location, LocalStorage) {
+
         var vm = this;
         vm.menu = menu();
         vm.isActive = isActive;
         vm.logOut = logOut;
         /*
-        * IMPLEMENT 
+        * IMPLEMENT
         */
 
         function menu() {

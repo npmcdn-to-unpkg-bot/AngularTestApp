@@ -1,0 +1,36 @@
+{
+  "name": "testapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@angular/router": "0.0.0-0",
+    "angular": "^1.5.5",
+    "angular-cookies": "^1.5.5",
+    "angular-route": "^1.5.5",
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^4.0.0",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-sourcemaps": "^2.0.0-alpha",
+    "gulp-uglify": "^1.5.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcodevecchi/AngularTestApp.git"
+  },
+  "author": "Marco De Vecchi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcodevecchi/AngularTestApp/issues"
+  },
+  "homepage": "https://github.com/marcodevecchi/AngularTestApp#readme"
+}

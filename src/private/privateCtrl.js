@@ -10,7 +10,7 @@
     function PrivateCtrl(LocalStorage, $location, $timeout) {
         var vm = this;
         activate();
-        
+
         function activate() {
             var check = LocalStorage.checkLogin();
             if (check.value == false) {

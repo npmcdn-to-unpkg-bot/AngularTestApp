@@ -10,17 +10,17 @@
     function BookCtrl(BookService) {
         var vm = this;
         vm.bookList = [];
-        
+
         activate();
         /*
-        * IMPLEMENT 
+        * IMPLEMENT
         */
         function activate() {
            return getBooks().then(function() {
             console.log('Activated Books View');
         });
         }
-        
+
         function getBooks() {
         return BookService.getBooks()
             .then(function(data) {
@@ -32,5 +32,3 @@
     }
 
 })();
-
-

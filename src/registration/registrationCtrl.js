@@ -12,7 +12,7 @@
         vm.registration = registration;
 
         /*
-        * IMPLEMENT 
+        * IMPLEMENT
         */
         function registration() {
             var reg = LocalStorage.register(vm.email, vm.password)

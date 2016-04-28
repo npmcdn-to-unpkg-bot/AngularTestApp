@@ -12,7 +12,7 @@
         vm.login = login;
         activate();
         /*
-        * IMPLEMENT 
+        * IMPLEMENT
         */
         function activate() {
             var check = LocalStorage.checkLogin();
@@ -36,4 +36,3 @@
     }
 
 })();
-
