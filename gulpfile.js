@@ -2,6 +2,11 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var clean = require('gulp-clean');
 var connect = require('gulp-connect');
+var StringMap = require("stringmap");
+var ngmin = require('gulp-ngmin');
+var uglify = require('gulp-uglify');
+var ngAnnotate = require('gulp-ng-annotate');
+var sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('move_html', function(){
       gulp.src(['src/**/*.html'])
@@ -22,7 +27,12 @@ gulp.task('move_js', function () {
             'src/private/*.js',
             'src/home/*.js',
           ])
+           .pipe(sourcemaps.init())
+          .pipe(ngmin())
+          .pipe(ngAnnotate())
+          .pipe(uglify()).on('error', errorHandler)
     .pipe(concat('app.js'))
+.pipe(sourcemaps.write('../maps'))
     .pipe(gulp.dest('public/js'));
 });
 
@@ -39,3 +49,9 @@ gulp.task('connect', function () {
 });
 
 gulp.task('default', ['connect', 'move_html','move_lib','move_js','watch']);
+
+
+function errorHandler (error) {
+  console.log(error.toString());
+  this.emit('end');
+}
