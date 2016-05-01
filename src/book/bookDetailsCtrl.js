@@ -9,6 +9,7 @@
 
     function BookCtrl(BookService) {
         var vm = this;
+        vm.loading=true;
         //vm.bookListDetails;
         vm.id="-1";
 
@@ -30,6 +31,7 @@
             return BookService.getBooksDetails(id)
                 .then(function(data) {
                     vm.bookListDetails = data;
+                    vm.loading=false;
                     //console.log(vm.bookListDetails);
                     return vm.bookListDetails;
                 });

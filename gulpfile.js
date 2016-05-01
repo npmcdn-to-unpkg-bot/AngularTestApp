@@ -13,6 +13,12 @@ gulp.task('move_html', function() {
         .pipe(gulp.dest('./public'));
 });
 
+gulp.task('move_img', function() {
+    gulp.src(['src/**/*.jpg','src/**/*.png','src/**/*.gif'])
+        .pipe(gulp.dest('./public'));
+});
+
+
 gulp.task('move_lib', function() {
     gulp.src(['node_modules/angular*/angular*.js'])
         .pipe(gulp.dest('./public/lib'));
@@ -25,7 +31,7 @@ gulp.task('move_js', function() {
             'src/registration/*.js',
             'src/book/*.js',
             'src/private/*.js',
-            'src/home/*.js',
+            'src/routing/*.js',
         ])
         .pipe(sourcemaps.init())
         .pipe(ngmin())
@@ -39,6 +45,10 @@ gulp.task('move_js', function() {
 gulp.task('watch', function() {
     gulp.watch('src/**/*.js', ['move_js']);
     gulp.watch('src/**/*.html', ['move_html']);
+    gulp.watch('src/**/*.jpg',['move_img']);
+    gulp.watch('src/**/*.png',['move_img']);
+    gulp.watch('src/**/*.gif',['move_img']);
+
 });
 
 gulp.task('connect', function() {
@@ -48,7 +58,7 @@ gulp.task('connect', function() {
     });
 });
 
-gulp.task('default', ['connect', 'move_html', 'move_lib', 'move_js', 'watch']);
+gulp.task('default', ['connect', 'move_html', 'move_lib', 'move_js','move_img', 'watch']);
 
 
 function errorHandler(error) {

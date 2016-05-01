@@ -10,9 +10,9 @@
         .value('$routerRootComponent', 'app')
 
         .component('app', {
-            templateUrl: 'home/home.html',
+            templateUrl: 'routing/routing.html',
             $routeConfig: [
-
+                { path: '/', name: 'BookList', component: 'bookList' },
                 { path: '/Login', name: 'Login', component: 'login' },
                 { path: '/Registration', name: 'Registration', component: 'registration' },
                 { path: '/Private', name: 'Private', component: 'private' },
@@ -43,5 +43,5 @@
         }
 
 
-    };
+    }
 })();

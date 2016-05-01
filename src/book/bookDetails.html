@@ -1,4 +1,8 @@
-body--->{{vm.bookListDetails.body}} <br>
-id--->{{vm.bookListDetails.id}} <br>
-title --->{{vm.bookListDetails.title}} <br>
-userid--->{{vm.bookListDetails.userId}} <br>
+<div class="jumbotron" ng-show="vm.loading">
+    <div class="center-block"><img class="center-block" src="../img/wait_spinner.gif" /></div>
+</div>
+<div class="jumbotron" ng-show="!vm.loading">
+    <h2>{{vm.bookListDetails.title}}</h2>
+    <p>{{vm.bookListDetails.body}} </p>
+
+</div>

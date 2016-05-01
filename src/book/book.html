@@ -1,5 +1,19 @@
-<ul ng-repeat="book in vm.bookList">
-    <li>{{book.id}} - <a href="/#/Book/{{book.id}}" >{{book.id}}</a>
-    <a ng-link="['BookDetails', {bookId: book.id}]">{{book.id}}</a>
-    </li>
-</ul>
+<div class="jumbotron" ng-show="vm.loading">
+    <div class="center-block"><img class="center-block" src="../img/wait_spinner.gif" /></div>
+</div>
+<div class="jumbotron" ng-show="!vm.loading">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>title</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="book in vm.bookList">
+                <td>{{book.id}}</td>
+                <td><a ng-link="['BookDetails', {bookId: book.id}]">{{book.title}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

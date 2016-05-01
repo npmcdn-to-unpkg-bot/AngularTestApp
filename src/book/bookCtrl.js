@@ -9,6 +9,7 @@
 
     function BookCtrl(BookService,Menu) {
         var vm = this;
+        vm.loading=true;
         vm.bookList = [];
         vm.menu = Menu.menu();
         //console.log("entri???");
@@ -18,7 +19,7 @@
          */
         function activate() {
             return getBooks().then(function() {
-                //console.log('Activated Books View');
+                vm.loading=false;
             });
         }
 
