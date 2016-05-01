@@ -14,13 +14,17 @@ gulp.task('move_html', function() {
 });
 
 gulp.task('move_img', function() {
-    gulp.src(['src/**/*.jpg','src/**/*.png','src/**/*.gif'])
+    gulp.src(['src/**/*.jpg', 'src/**/*.png', 'src/**/*.gif'])
         .pipe(gulp.dest('./public'));
 });
 
 
 gulp.task('move_lib', function() {
-    gulp.src(['node_modules/angular*/angular*.js'])
+    gulp.src(['node_modules/angular*/angular*.js',
+            'node_modules/jquery/dist/jquery.min.js',
+            'node_modules/bootstrap/dist/js/bootstrap.min.js',
+            'node_modules/bootstrap/dist/css/*.css'
+        ])
         .pipe(gulp.dest('./public/lib'));
 });
 
@@ -34,10 +38,10 @@ gulp.task('move_js', function() {
             'src/routing/*.js',
         ])
         .pipe(sourcemaps.init())
+        .pipe(concat('app.js'))
         .pipe(ngmin())
         .pipe(ngAnnotate())
         .pipe(uglify()).on('error', errorHandler)
-        .pipe(concat('app.js'))
         .pipe(sourcemaps.write('../maps'))
         .pipe(gulp.dest('public/js'));
 });
@@ -45,9 +49,9 @@ gulp.task('move_js', function() {
 gulp.task('watch', function() {
     gulp.watch('src/**/*.js', ['move_js']);
     gulp.watch('src/**/*.html', ['move_html']);
-    gulp.watch('src/**/*.jpg',['move_img']);
-    gulp.watch('src/**/*.png',['move_img']);
-    gulp.watch('src/**/*.gif',['move_img']);
+    gulp.watch('src/**/*.jpg', ['move_img']);
+    gulp.watch('src/**/*.png', ['move_img']);
+    gulp.watch('src/**/*.gif', ['move_img']);
 
 });
 
@@ -58,7 +62,7 @@ gulp.task('connect', function() {
     });
 });
 
-gulp.task('default', ['connect', 'move_html', 'move_lib', 'move_js','move_img', 'watch']);
+gulp.task('default', ['connect', 'move_html', 'move_lib', 'move_js', 'move_img', 'watch']);
 
 
 function errorHandler(error) {
