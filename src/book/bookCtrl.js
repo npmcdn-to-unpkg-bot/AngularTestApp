@@ -1,34 +1,35 @@
-(function () {
+(function() {
     'use strict';
     angular.module('app')
-        .component('book', {
+        .component('bookList', {
             templateUrl: 'book/book.html',
             controller: BookCtrl,
-            controllerAs: 'vm'
+            controllerAs: 'vm',
         });
 
-    function BookCtrl(BookService) {
+    function BookCtrl(BookService,Menu) {
         var vm = this;
         vm.bookList = [];
-
+        vm.menu = Menu.menu();
+        //console.log("entri???");
         activate();
         /*
-        * IMPLEMENT
-        */
+         * IMPLEMENT
+         */
         function activate() {
-           return getBooks().then(function() {
-            console.log('Activated Books View');
-        });
+            return getBooks().then(function() {
+                //console.log('Activated Books View');
+            });
         }
 
         function getBooks() {
-        return BookService.getBooks()
-            .then(function(data) {
-                vm.bookList = data;
-                console.log(vm.bookList);
-                return vm.bookList;
-            });
-    }
+            return BookService.getBooks()
+                .then(function(data) {
+                    vm.bookList = data;
+                    //console.log(vm.bookList);
+                    return vm.bookList;
+                });
+        }
     }
 
 })();

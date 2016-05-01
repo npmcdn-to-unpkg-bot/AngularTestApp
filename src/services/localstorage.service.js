@@ -18,7 +18,7 @@
 
         ////////////////
         function User(user, password, key) {
-            console.log("User create");
+            //console.log("User create");
             this.User = user;
             this.Password = password;
             this.Key = key;
@@ -108,12 +108,12 @@
                         error: "user or password error"
                     };
                 } else {
-                    console.log(arr[0]);
+                    //console.log(arr[0]);
                     for (var i = 0, len = arr.length; i < len; i++) {
-                        console.log(arr[i].Key);
+                        //console.log(arr[i].Key);
                         if (typeof arr[i].Key !== "undefined") {
                             if (arr[i].Key === $cookies.get('userkey')) {
-                                console.log(arr[i].Key + " $%$%$%$" + $cookies.get('userkey'));
+                                //console.log(arr[i].Key + " $%$%$%$" + $cookies.get('userkey'));
                                 return {
                                     value: true,
                                     error: ""

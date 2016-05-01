@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    console.log("entri");
+    //console.log("entri");
     angular.module('app')
 
         .config(function($locationProvider) {
@@ -16,32 +16,23 @@
                 { path: '/Login', name: 'Login', component: 'login' },
                 { path: '/Registration', name: 'Registration', component: 'registration' },
                 { path: '/Private', name: 'Private', component: 'private' },
-                { path: '/Book', name: 'Book', component: 'book' },
+                { path: '/BookList', name: 'BookList', component: 'bookList' },
+                {path: '/BookList/:bookId',name: 'BookDetails',component: 'bookDetails'}
             ],
             controller: AppCtrl,
             controllerAs: 'vm'
         });
 
-    function AppCtrl($location, LocalStorage) {
+    function AppCtrl($location, LocalStorage,Menu) {
 
         var vm = this;
-        vm.menu = menu();
+        vm.menu = Menu.menu();
         vm.isActive = isActive;
         vm.logOut = logOut;
         /*
         * IMPLEMENT
         */
 
-        function menu() {
-            var menu = [
-
-                { name: 'Login', link: '/Login' },
-                { name: 'Registration', link: '/Registration' },
-                { name: 'Private', link: '/Private' },
-                { name: 'book', link: '/Book' }
-            ]
-            return menu;
-        }
         function logOut() {
             LocalStorage.logOut();
             $location.path("/Login");

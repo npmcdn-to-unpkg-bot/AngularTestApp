@@ -1,3 +1,5 @@
 <ul ng-repeat="book in vm.bookList">
-    <li>{{book.title}}</li>
+    <li>{{book.id}} - <a href="/#/Book/{{book.id}}" >{{book.id}}</a>
+    <a ng-link="['BookDetails', {bookId: book.id}]">{{book.id}}</a>
+    </li>
 </ul>
